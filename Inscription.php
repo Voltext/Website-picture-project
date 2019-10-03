@@ -12,10 +12,6 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
 
-  <script src="assets/library/jquery.min.js"></script>
-  <script src="../dist/components/form.js"></script>
-  <script src="../dist/components/transition.js"></script>
-
   <style type="text/css">
     body {
       background-color: #DADADA;
@@ -79,7 +75,7 @@
         Inscription
       </div>
     </h2>
-    <form class="ui large form">
+    <form class="ui large form" method="Post">
       <div class="ui stacked segment">
         <div class="field">
           <div class="ui left icon input">
@@ -137,7 +133,7 @@
           </div>
         </div>
 
-        <div class="ui fluid large teal submit button">S'inscrire</div>
+        <div class="ui fluid large teal submit button"><a href="#" style="color: white">S'inscrire</a></div>
       </div>
 
       <div class="ui error message"></div>
@@ -149,7 +145,7 @@
     </div>
   
 </div>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"/>
+<script type="text/javascript" src="https://cdnjs.cloudflareuj.com/ajax/libs/semantic-ui/2.4.1/semantic.js"/>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"/>
 </body>
 
