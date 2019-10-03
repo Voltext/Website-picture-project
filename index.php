@@ -29,7 +29,7 @@
         <div class="uk-card uk-card-default uk-card-body">Catégories Populaires</div>
     </div>
     <div>
-        <div class="uk-card uk-card-default uk-card-body">Tags populaires</div>
+        <div class="uk-card uk-card-default uk-card-body">Tags pouh</div>
     </div>
     <div>
         <div class="uk-card uk-card-default uk-card-body">Uitilisateurs populaires</div>
