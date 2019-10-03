@@ -7,7 +7,7 @@
       <img src="assets/images/logo.png" class="image">
       <div class="content">
         Log-in to your account
-      </div>fzefze
+      </div>
     </h2>
     <form class="ui large form">
       <div class="ui stacked segment">
