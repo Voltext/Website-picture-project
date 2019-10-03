@@ -18,8 +18,11 @@
         <a class="uk-navbar-item uk-logo" href="#">PhotoSpot</a>
 
         <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="#">Accueil</a></li>
-            <li><a href="#">Photos</a></li>
+            <li class="uk-active"><a href="#"><span uk-icon="home"></span>&nbsp;&nbsp;Accueil</a></li>
+            <li><a href="#"><span uk-icon="cloud-upload"></span>&nbsp;&nbsp;Ajouter une photo</a></li>
+            <li><a href="#"><span uk-icon="image"></span>&nbsp;&nbsp;Toutes les photos</a></li>
+            <li><a href="#"><span uk-icon="users"></span>&nbsp;&nbsp;Tous les utilisateurs</a></li>
+            <li><a href="#"><span uk-icon="mail"></span>&nbsp;&nbsp;Contact</a></li>
         </ul>
 
     </div>
@@ -32,9 +35,11 @@
                 <span uk-icon="user" style="cursor: pointer;"></span>
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li class="uk-active"><a href="#">Active</a></li>
-                        <li><a href="#">Item</a></li>
-                        <li><a href="#">Item</a></li>
+                        <li class="uk-active" style="font-size: 18px;"><a href="#">Profil</a></li>
+                        <li><a href="#">Mon profil</a></li>
+                        <li><a href="#">Mon compte</a></li>
+                        <br>
+                        <li><a href="#" style="color: red;">Deconnexion</a></li>
                     </ul>
                 </div>
             </li>
