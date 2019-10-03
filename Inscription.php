@@ -12,6 +12,10 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
 
+  <script src="assets/library/jquery.min.js"></script>
+  <script src="../dist/components/form.js"></script>
+  <script src="../dist/components/transition.js"></script>
+
   <style type="text/css">
     body {
       background-color: #DADADA;
@@ -70,11 +74,8 @@
  <div class="ui middle aligned center aligned grid">
    <div class="column">
      <h2 class="ui teal image header">
-      <img src="assets/images/logo.png" class="image">
       <img src="https://semantic-ui.com/examples/assets/images/logo.png" class="image">
        <div class="content">
-        Log-in to your account
-      </div>
         Inscription
       </div>
      </h2>
@@ -83,7 +84,6 @@
          <div class="field">
            <div class="ui left icon input">
              <i class="user icon"></i>
-            <input type="text" name="email" placeholder="E-mail address">
             <input type="text" name="NomFamille" placeholder="Nom de Famille">
           </div>        
         </div>
@@ -126,11 +126,9 @@
          <div class="field">
            <div class="ui left icon input">
              <i class="lock icon"></i>
-            <input type="password" name="password" placeholder="Password">
             <input type="password" name="confirmpassword" placeholder="Confirmer le mot de passe">
            </div>
-        </div>
-        <div class="ui fluid large teal submit button">Login</div>
+         </div>
 
         <div class="field">
           <div class="ui left icon input">
@@ -144,22 +142,14 @@
  
        <div class="ui error message"></div>
  
-     </form>
- 
-    <div class="ui message">
-      New to us? <a href="#">Sign Up</a>
-    
-      <div class="ui fluid large teal submit button"><a href="#" style="color: white">Connexion</a></div>
+     </form> 
+      <div class="ui fluid large teal submit button"><a href="Connexion.php" style="color: white">Connexion</a></div>
      </div>
-  </div>
   
-</div>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"/>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"/>
+ </div>
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"/>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"/>
 </body>
 
 </html>
 <!-- FIN INSCRIPTION -->
-
