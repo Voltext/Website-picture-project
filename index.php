@@ -1,3 +1,11 @@
+<?php
+require_once('controllers/Router.php');
+
+$router = new Router();
+$router->routeReq();
+
+?>
+
 <?php include 'include/header.php'; ?>
 <html>
 <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="autoplay: true" uk-slider="finite: true">
