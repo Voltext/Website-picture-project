@@ -11,69 +11,20 @@
   <title>Login Example - Semantic</title>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 
   <script src="assets/library/jquery.min.js"></script>
   <script src="../dist/components/form.js"></script>
   <script src="../dist/components/transition.js"></script>
+  <script src="js/script.js"></script>
 
-  <style type="text/css">
-    body {
-      background-color: #DADADA;
-    }
-    body > .grid {
-      height: 100%;
-    }
-    .image {
-      margin-top: -100px;
-    }
-    .column {
-      max-width: 450px;
-    }
-  </style>
-  <script>
-  $(document)
-    .ready(function() {
-      $('.ui.form')
-        .form({
-          fields: {
-            email: {
-              identifier  : 'email',
-              rules: [
-                {
-                  type   : 'empty',
-                  prompt : 'Please enter your e-mail'
-                },
-                {
-                  type   : 'email',
-                  prompt : 'Please enter a valid e-mail'
-                }
-              ]
-            },
-            password: {
-              identifier  : 'password',
-              rules: [
-                {
-                  type   : 'empty',
-                  prompt : 'Please enter your password'
-                },
-                {
-                  type   : 'length[6]',
-                  prompt : 'Your password must be at least 6 characters'
-                }
-              ]
-            }
-          }
-        })
-      ;
-    })
-  ;
-  </script>
+
 </head>
 <body>
   <div id="large-header" class="large-header">
         <canvas id="demo-canvas" width="1051" height="290"></canvas>
  <div class="ui middle aligned center aligned grid">
-   <div class="column" id="column">
+   <div class="columnC" id="columnC">
      <h2 class="ui teal image header">
       <img src="https://semantic-ui.com/examples/assets/images/logo.png" class="image">
        <div class="content">
@@ -108,85 +59,45 @@
   
  </div>
 </div>
- <style type="text/css">
-  #column{
-    position: absolute;
-    bottom: 50%;
-  }
- .large-header {
-   position: relative;
-   width: 100%;
-   background: #111;
-   overflow: hidden;
-   background-size: cover;
-   background-position: center center;
-   z-index: 1;
-  }
-
-  .demo .large-header {
-     background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/demo-bg.jpg");
-  }
-
-  .main-title {
-     position: absolute;
-     margin: 0;
-     padding: 0;
-     color: #F9F1E9;
-     text-align: center;
-     top: 13%;
-     left: 50%;
-     -webkit-transform: translate3d(-50%, -50%, 0);
-     transform: translate3d(-50%, -50%, 0);
-  }
-
-  .demo .main-title {
-     text-transform: uppercase; 
-     letter-spacing: 0.1em;
-  }
-
-  .main-title .thin {
-     font-weight: 200;
-  }
-
-  ul{
-      max-width: 300px;
+  <?php 
+  if (isset($_POST['loginC'])) 
+  {
+    $login = mysqli_real_escape_string($CO,$_POST["loginC"]);
+    $pwd = mysqli_real_escape_string($CO,$_POST["pwdC"]);
+    $sql = "select * from user where (usr_login='$login' or usr_email='$login') AND usr_pwd=sha1('$pwd{$gds}PWD')";
+    $rs_user = mysqli_query($CO,$sql) or die(mysqli_error($CO));
+    if($user = mysqli_fetch_assoc($rs_user))
+    {
+      if (!$user['usr_email_valide']) 
+      {
+        echo "<script>alert('Vous devez valider votre mail avant !');</script>";
+        echo "<script type='text/javascript'>document.location.replace('?');</script>";
+        exit();
+      }
+      else
+      {
+        $time = isset($_POST['rememberme'])?(time()+ 3600 * 24 * 365):0;
+        setcookie('usr_login',$user['usr_login'],$time, '/');
+        setcookie('user_id',$user['usr_id'],$time, '/');
+        setcookie('user_id_h',sha1($user['usr_id'].$gds."COK"),$time, '/');
+        header("location:../Accueil.php");
+      }
     }
-    ul li{
-
-      color: #dadada;
-        background-color: rgb(118, 132, 131);
-        font-size: 22px;
-        margin-top: 22px;
-        padding: 7px 0px 7px 18px;
-        border-bottom-right-radius: 4px;
-        border-top-right-radius: 4px;
-        transition: 0.6s all;
+    else 
+    {
+      echo "<script>alert('Erreur dans le login ou le mot de passe.');</script>";
     }
-    ul li:hover{
-      transition: 0.6s all;
-      background-color:rgba(9, 0, 90, 0.4);
-    }
-    .sites{
-      position: absolute;
-      top: 24%;
-      /*left: 20%;*/
-      margin: 10px;
-    }
-
-  @media only screen and (max-width: 768px) {
-     .demo .main-title {
-        font-size: 3em;
-     }
+    $login = isset($_POST["loginC"])?htmlspecialchars($_POST["loginC"], ENT_QUOTES):'';
   }
-    </style>
-  <script>
-    window.console = window.console || function(t) {};
-  </script>
-  <script>
-    if (document.location.search.match(/type=embed/gi)) {
-      window.parent.postMessage("resize", "*");
-    }
-  </script>
+
+
+  if (isset($message_erreur)) 
+  {
+    echo "$message_erreur";
+  }
+  $login = isset($_POST["loginC"])?htmlspecialchars($_POST["loginC"], ENT_QUOTES):'';
+  $email = isset($_POST["emailC"])?htmlspecialchars($_POST["emailC"], ENT_QUOTES):'';
+ ?>
   <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
   <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/TweenLite.min.js"></script>
   <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/EasePack.min.js"></script>

@@ -1,0 +1,103 @@
+body {
+  background-color: #DADADA;
+}
+body > .grid {
+  height: 100%;
+}
+.image {
+  margin-top: -100px;
+}
+.columnC {
+  max-width: 450px;
+}
+#columnC{
+    position: absolute;
+    bottom: 50%;
+  }
+.columnI {
+max-width: 450px;
+}
+#columnI {
+  position: absolute;
+  bottom: 20%;
+}
+.large-header {
+ position: relative;
+ width: 100%;
+ background: #111;
+ overflow: hidden;
+ background-size: cover;
+ background-position: center center;
+ z-index: 1;
+}
+
+.demo .large-header {
+   background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/demo-bg.jpg");
+}
+
+.main-title {
+   position: absolute;
+   margin: 0;
+   padding: 0;
+   color: #F9F1E9;
+   text-align: center;
+   top: 13%;
+   left: 50%;
+   -webkit-transform: translate3d(-50%, -50%, 0);
+   transform: translate3d(-50%, -50%, 0);
+}
+
+.demo .main-title {
+   text-transform: uppercase; 
+   letter-spacing: 0.1em;
+}
+
+.main-title .thin {
+   font-weight: 200;
+}
+
+ul{
+    max-width: 300px;
+  }
+  ul li{
+
+    color: #dadada;
+      background-color: rgb(118, 132, 131);
+      font-size: 22px;
+      margin-top: 22px;
+      padding: 7px 0px 7px 18px;
+      border-bottom-right-radius: 4px;
+      border-top-right-radius: 4px;
+      transition: 0.6s all;
+  }
+  ul li:hover{
+    transition: 0.6s all;
+    background-color:rgba(9, 0, 90, 0.4);
+  }
+  .sites{
+    position: absolute;
+    top: 24%;
+    /*left: 20%;*/
+    margin: 10px;
+  }
+
+@media only screen and (max-width: 768px) {
+   .demo .main-title {
+      font-size: 3em;
+   }
+}
+
+#connexion-color{
+  color: white;
+}
+
+#submitI {
+  border: #00b5ad;
+  text-decoration: none;
+  color: white;
+  background: #00b5ad;
+}
+
+#submitI:hover{
+  background-color:  #009c95;
+}
