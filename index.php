@@ -1,5 +1,7 @@
 <?php include 'include/header.php'; ?>
 <html>
+
+<!-- caroussel accueil -->
 <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="autoplay: true" uk-slider="finite: true">
 
     <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">
@@ -25,17 +27,69 @@
     <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
 
 </div>
+
+<!-- Zone populaire -->
 <div class="uk-child-width-expand@s uk-text-center" uk-grid>
     <div>
         <div class="uk-card uk-card-default uk-card-body">Catégories Populaires</div>
     </div>
     <div>
-        <div class="uk-card uk-card-default uk-card-body">Tags pouh</div>
+        <div class="uk-card uk-card-default uk-card-body">Tags populaire</div>
     </div>
     <div>
         <div class="uk-card uk-card-default uk-card-body">Uitilisateurs populaires</div>
     </div>
 </div>
+
+<p></p>
+<p></p>
+
+<!-- photo -->
+<table>
+<tr>
+<td><div class="uk-grid-column-small uk-grid-row-large uk-child-width-1-3@s uk-text-center" uk-grid>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body" style="height: 200px" >Item</div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body" style="height: 200px">Item</div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body" style="height: 200px">Item</div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body" style="height: 200px">Item</div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body" style="height: 200px">Item</div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body" style="height: 200px">Item</div>
+    </div>
+</div></td>
+<td><div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="center: true">
+
+<ul class="uk-slider-items uk-grid">
+    <li class="uk-width-3-4">
+        <div class="uk-panel">
+            <img src="https://www.numerama.com/content/uploads/2019/08/androidnew.jpg" height="500" width="600" size alt="">
+           
+        </div>
+    </li>
+    <li class="uk-width-3-4">
+        <div class="uk-panel">
+            <img src="https://www.numerama.com/content/uploads/2019/08/androidnew.jpg" height="500" width="600" alt="">
+           
+        </div>
+    </li>
+</ul>
+
+<a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+<a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+</div></td>
+</tr>
+</table>
 
 
 </html>
