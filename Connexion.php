@@ -24,7 +24,7 @@
   <div id="large-header" class="large-header">
         <canvas id="demo-canvas" width="1051" height="290"></canvas>
  <div class="ui middle aligned center aligned grid">
-   <div class="column" id="column">
+   <div class="columnC" id="columnC">
      <h2 class="ui teal image header">
       <img src="https://semantic-ui.com/examples/assets/images/logo.png" class="image">
        <div class="content">
@@ -59,6 +59,45 @@
   
  </div>
 </div>
+  <?php 
+  if (isset($_POST['loginC'])) 
+  {
+    $login = mysqli_real_escape_string($CO,$_POST["loginC"]);
+    $pwd = mysqli_real_escape_string($CO,$_POST["pwdC"]);
+    $sql = "select * from user where (usr_login='$login' or usr_email='$login') AND usr_pwd=sha1('$pwd{$gds}PWD')";
+    $rs_user = mysqli_query($CO,$sql) or die(mysqli_error($CO));
+    if($user = mysqli_fetch_assoc($rs_user))
+    {
+      if (!$user['usr_email_valide']) 
+      {
+        echo "<script>alert('Vous devez valider votre mail avant !');</script>";
+        echo "<script type='text/javascript'>document.location.replace('?');</script>";
+        exit();
+      }
+      else
+      {
+        $time = isset($_POST['rememberme'])?(time()+ 3600 * 24 * 365):0;
+        setcookie('usr_login',$user['usr_login'],$time, '/');
+        setcookie('user_id',$user['usr_id'],$time, '/');
+        setcookie('user_id_h',sha1($user['usr_id'].$gds."COK"),$time, '/');
+        header("location:../Accueil.php");
+      }
+    }
+    else 
+    {
+      echo "<script>alert('Erreur dans le login ou le mot de passe.');</script>";
+    }
+    $login = isset($_POST["loginC"])?htmlspecialchars($_POST["loginC"], ENT_QUOTES):'';
+  }
+
+
+  if (isset($message_erreur)) 
+  {
+    echo "$message_erreur";
+  }
+  $login = isset($_POST["loginC"])?htmlspecialchars($_POST["loginC"], ENT_QUOTES):'';
+  $email = isset($_POST["emailC"])?htmlspecialchars($_POST["emailC"], ENT_QUOTES):'';
+ ?>
   <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
   <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/TweenLite.min.js"></script>
   <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/EasePack.min.js"></script>
