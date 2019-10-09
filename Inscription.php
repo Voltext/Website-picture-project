@@ -1,18 +1,18 @@
 <!-- DEBUT INSCRIPTION -->
 <?php include 'BDD/bdd.php'; 
-if(isset($_GET["pseudo"]))
+if(isset($_GET["Pseudo"]))
 {
-  $login = $_GET["pseudo"];
-  $sql = "SELECT usr_login from user where usr_login= '$login'";
+  $Pseudo = $_GET["Pseudo"];
+  $sql = "SELECT usr_login from user where usr_login= '$Pseudo'";
   $req = mysqli_myquery($CO,$sql);
   $nb_pseudo = mysqli_num_rows($req);
   if($nb_pseudo == 1 )
   {
-    echo "<p id='utlise'>Le login est déjà utilisé</p>";
+    echo "Le login est déjà utilisé";
   }
   else
   {
-    echo "<p id='pouvoir'>Vous pouvez utiliser ce login</p>";
+    echo "Vous pouvez utiliser ce login";
   }
   exit;
 } 
@@ -30,8 +30,9 @@ if(isset($_GET["pseudo"]))
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  
+
   <script src="js/script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -64,7 +65,7 @@ if(isset($_GET["pseudo"]))
          <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="Pseudo" placeholder="Pseudo" required>
+            <input type="text" name="Pseudo" placeholder="Pseudo" onkeyup="verif(this.value)" required>
             <span id='msgbox'></span>
           </div>        
         </div>
@@ -104,7 +105,7 @@ if(isset($_GET["pseudo"]))
           </div>
         </div>
 
-        <button class="ui fluid large teal submit button" name="submit" id="submitI"> S'inscrire</button>
+        <button class="ui fluid large teal submit button" name="submit" id="submitI" value="test"> S'inscrire</button>
        </div>
  
        <div class="ui error message"></div>
@@ -116,8 +117,10 @@ if(isset($_GET["pseudo"]))
  </div>
 
   <?php 
+  var_dump($_POST);
   if (isset($_POST["submit"])) 
   {
+    echo "salut";
     $NomFamille = mysqli_real_escape_string($CO,$_POST["NomFamille"]);
     $Prenom = mysqli_real_escape_string($CO,$_POST["Prenom"]);
     $Pseudo = mysqli_real_escape_string($CO,$_POST["Pseudo"]);
@@ -126,30 +129,34 @@ if(isset($_GET["pseudo"]))
     $confirmpassword = mysqli_real_escape_string($CO,$_POST["confirmpassword"]);
     $fichieravatar = mysqli_real_escape_string($CO,$_POST["fichieravatar"]);
 
-    $sql = mysqli_myquery($CO,"SELECT * from user");
-    while($pseudo = mysqli_fetch_assoc($sql))
+
+
+    $sql = "SELECT usr_login from user where usr_login= '$Pseudo'";
+    $req = mysqli_myquery($CO,$sql);
+    $nb_pseudo = mysqli_num_rows($req);
+    if($nb_pseudo == 1 )
     {
-      if ($login == $pseudo['usr_login']) 
-      {
-        echo "<script>alert('Vous ne pouvez pas vous inscrire avec un nom déjà existant');</script>";
-        echo "<script type='text/javascript'>document.location.replace('Inscription.php');</script>";
-        exit();
-      }
+      echo "Le login est déjà utilisé";
+    }
+    else
+    {
+      echo "Vous pouvez utiliser ce login";
     }
 
     if ($password != $confirmpassword) 
     {
       $message_erreur = "<script>alert('Erreur : les mots de passe ne correspondent pas');</script>";
     }
-    elseif (!preg_match('~^[a-zA-Z0-9_-]{4,}$~', $login)) 
+    elseif (!preg_match('~^[a-zA-Z0-9_-]{4,}$~', $Pseudo)) 
     {
-      $message_erreur = "<script>alert('Le login n'est pas assez long');</script>";
+      $message_erreur = "<script>alert('Le login n\'est pas assez long');</script>";
     }
     else //Tout va bien
     {
       $ip = $_SERVER["REMOTE_ADDR"];
       $sql = "INSERT INTO user (usr_login,usr_pwd,usr_nom, usr_prenom, usr_mail, usr_ip_inscription)
-      VALUES('$pseudo',sha1('$pwd1{$gds}CO'),'$NomFamille','$Prenom','$email','$ip')"; 
+      VALUES('$Pseudo',sha1('$password{$gds}CO'),'$NomFamille','$Prenom','$email','$ip')"; 
+      echo "$sql";
       mysqli_myquery($CO, $sql);
       $usr_id = mysqli_insert_id($CO); // récupérer l'id de l'user crée
 
@@ -162,8 +169,9 @@ if(isset($_GET["pseudo"]))
       $url .= "?usr_id=$usr_id&hash=$hash";
       $message = "Bonjour , vous venez de vous inscrire sur le site PhotoSpot $host.\n\n merci de cliqué sur le lien pour valider vôtre mail :\n\n $url\n\n";
       mail($email, 'Confirmation de l\'adresse mail',$message);
-      header("Location:Connexion.php");
+      // header("Location:index.php");
     }
+    echo $message_erreur;
   } 
   ?>
 
@@ -180,14 +188,15 @@ if(isset($_GET["pseudo"]))
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
-    function verif(login){
+    function verif(Pseudo){
       $.ajax(
         {
           type : "GET",
-          data : "loginI=" + login,
+          data : "Pseudo=" + Pseudo,
           async: true,
           success : function(result){
             $("span#msgbox").html(result);
+            
           }
         });
     }
