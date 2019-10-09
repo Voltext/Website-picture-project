@@ -1,0 +1,78 @@
+/* -------------------------------------------------------
+   -------------------------------------------------------
+/*	Css du footer   */
+*{
+
+	margin:0;
+
+	padding:0;
+
+ }
+
+ 
+
+body, html{height:100%;}
+
+body
+{
+
+	text-align:center;
+
+}
+
+ 
+
+#main
+{
+
+	max-width:1280px;
+
+	min-height:100%;
+
+	margin:0 auto;
+
+	position:relative;
+
+}
+	footer
+	{
+		background:#ccc;
+
+		position:absolute;
+
+		bottom:0;
+
+		width:100%;
+
+		padding-top:15px;
+
+		height:250px;
+
+		text-align:center;
+
+		display: flex;
+
+		justify-content: space-around;
+
+		margin:auto;
+	}
+
+	.DescriptionSite 
+	{
+		width: 33%;
+		margin:auto;
+	}
+	.PlanDuSite
+	{
+		width: 33%;
+		margin:auto;
+	}
+	.OnVerra
+	{
+		width: 33%;
+		margin:auto;
+	}
+
+/* -------------------------------------------------------
+   -------------------------------------------------------*/
+
