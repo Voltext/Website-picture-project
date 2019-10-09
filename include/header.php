@@ -1,3 +1,4 @@
+<?php include "BDD/start_page_display.php";?>
 <html>
 <head>
 <!DOCTYPE html>
@@ -11,6 +12,7 @@
         <script src="js/uikit-icons.min.js"></script>
     </head>
     </body>
+
     <nav class="uk-navbar-container uk-margin" uk-navbar="mode: click">
 
     <div class="nav-overlay uk-navbar-left">
