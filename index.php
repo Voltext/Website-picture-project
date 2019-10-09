@@ -4,7 +4,8 @@
 
     <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">
         <li>
-            <img src="https://formation.antoinehoury.io/wp-content/uploads/2019/02/php-e8c6425acd65e1cbc012639ad25598c7.png" alt="">
+            <img src="https://formation.antoinehoury.io/wp-content/uploads/2019/02/php-e8c6425acd65e1cbc012639ad25598c7.png" width="80000" height="20000"alt="">
+            <div class="uk-position-center uk-panel"><h1>1</h1></div>
         </li>
         <li>
             <img src="https://inteng-storage.s3.amazonaws.com/img/iea/V0OyRqxYGQ/sizes/ctraining_resize_md.jpg" alt="">
@@ -29,7 +30,7 @@
         <div class="uk-card uk-card-default uk-card-body">Catégories Populaires</div>
     </div>
     <div>
-        <div class="uk-card uk-card-default uk-card-body">Tags populaires</div>
+        <div class="uk-card uk-card-default uk-card-body">Tags pouh</div>
     </div>
     <div>
         <div class="uk-card uk-card-default uk-card-body">Uitilisateurs populaires</div>
