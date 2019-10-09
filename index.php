@@ -99,5 +99,6 @@ $router->routeReq();
 </tr>
 </table>
 
+<div>Bonjour Monsieur <?php echo $_COOKIE["usr_login"];?></div>
 
 </html>
